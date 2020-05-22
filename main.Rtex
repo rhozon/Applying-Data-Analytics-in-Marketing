@@ -1,0 +1,391 @@
+\documentclass{article}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[utf8]{inputenc}
+\usepackage{lscape}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+\usepackage{amsmath}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+\usepackage{tikz}
+\newcommand{\roundpic}[4][]{
+  \tikz\node [circle, minimum width = #2,
+    path picture = {
+      \node [#1] at (path picture bounding box.center) {
+        \includegraphics[width=#3]{#4}};
+    }] {};}
+    
+\usepackage{indentfirst}
+\usepackage[a4paper,margin={1.2in,1.5in},vmargin={1.2in,1.5in}]{geometry}
+\geometry{paperwidth=210mm,paperheight=297mm,
+textwidth=150mm,textheight=210mm,
+top=23mm,bottom=23mm,
+left=23mm,right=23mm}
+\usepackage[colorlinks,linkcolor=blue,hyperindex]{hyperref}
+\usepackage[brazil]{babel}
+\usepackage{graphicx,color,wrapfig}
+\usepackage{multicol}
+%\usetikzlibrary{mindmap}
+%\pagestyle{empty}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[]{}
+\rhead{Integrando o \faRProject com o \LaTeX}
+\fancyfoot[]{}
+\renewcommand{\headrulewidth}{0.1pt}
+\usepackage{color,soul}
+\usepackage{color}
+\usepackage{listings}%pacote para literalizar os códigos do R no Latex
+\usepackage{xcolor}
+
+\usepackage[dvipsnames]{xcolor}
+
+\definecolor{mygray}{gray}{0.9}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{mygray},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+%=========fim da instrução do listings
+\usepackage{xcolor}
+\usepackage[fixed]{fontawesome5}
+\usepackage{tcolorbox}
+\usepackage{comment}
+
+\usepackage[framemethod=TikZ]{mdframed}
+\mdfdefinestyle{MyFrame}{%
+    linecolor=blue,
+    outerlinewidth=1pt,
+    roundcorner=40pt,
+    innertopmargin=\baselineskip,
+    innerbottommargin=\baselineskip,
+    innerrightmargin=10pt,
+    innerleftmargin=10pt,
+    backgroundcolor=gray!50!white}
+%============================================================
+%========================================================
+\begin{document}
+
+
+%============================================================
+
+\title{Integrando o \faRProject com o \LaTeX \\ Livro de Exercícios}
+\author{\href{https://rhozon.github.io/}{Rodrigo Hermont Ozon\footnote{Economista e Mestre em Desenvolvimento Econômico pela UFPR.}}}
+\date{Maio, 2020}
+
+\maketitle
+
+
+
+\thispagestyle{empty}
+%===========================================================
+\newpage
+
+\begin{mdframed}[style=MyFrame]
+
+\fbox{%
+\roundpic[xshift=-.00000095cm,yshift=-.0006cm]{3.8cm}{3cm}{me.jpg}%
+}
+
+
+\section*{Sobre o Autor:}
+
+
+\textit{Rodrigo Hermont Ozon, economista e apaixonado por econometria, pelas aplicações de modelos econômicos a problemas reais e cotidianos vivenciados na sociedade e na realidade das empresas.}
+
+
+\begin{flushleft}
+Seus contatos podem ser acessados em:
+
+\begin{itemize}
+\item \href{https://rhozon.github.io/}{\faGithub} \href{https://rhozon.github.io/}{Github}
+
+\item \href{https://www.linkedin.com/in/rodrigohermontozon/}{\faLinkedin} \href{https://www.linkedin.com/in/rodrigohermontozon/}{Linkedin} %
+\end{itemize}
+\end{flushleft}
+
+
+\end{mdframed}
+
+\vspace{9cm}
+
+
+\begin{abstract}
+  Trata-se de um livro de exercícios rodado no overleaf para os chunks do \faRProject no \LaTeX 
+\end{abstract}
+
+
+\thispagestyle{empty}
+%==============================================================
+\newpage
+
+.
+
+\vspace{22cm}
+À minha amada esposa, Idiane \textit{"Porque sou eu que conheço os planos que tenho para vocês", diz o Senhor, "planos de fazê-los prosperar e não de lhes causar dano, planos de dar-lhes esperança e um futuro."}
+
+\vspace{.15cm}
+\hspace{13cm}\href{https://www.bibliaonline.com.br/nvi/jr/29/11}{Jeremias 29:11}
+
+\thispagestyle{empty}
+
+%==========================================================
+
+\newpage
+\tableofcontents
+\lstlistoflistings
+
+
+
+%\hspace{12cm}\includegraphics[widht=1.5cm,height=1.5cm]{erasmussign.png}
+\thispagestyle{headings}
+
+\newpage
+%====================================================
+\section{Introdução}
+
+Esse livro de exercícios é oriundo do curso \textit{\href{https://www.coursera.org/learn/applying-data-analytics-business-in-marketing/lecture/kGkuJ/math-function}{Applying Data Analytics in Marketing}}
+
+\section{Funções Matemáticas}
+
+\subsection{Terceiro vídeo da primeira semana:}
+
+
+OK. Portanto, nesta lição, começaremos a examinar alguns comandos R elementares. Sei que alguns de vocês que participam desta aula podem não ter nenhuma experiência em programação e alguns podem ter uma vasta experiência em programação. Mas para aqueles que não têm experiência em programação em nenhuma linguagem, não se preocupe. Nesta classe, o nível de dificuldade será o mesmo que escrever uma função no Microsoft Excel. Daremos pequenos passos ao longo do caminho e ficaremos à vontade para pausar o vídeo a qualquer momento, caso você queira examinar suas anotações. Então vamos começar. A primeira coisa que eu gostaria de falar é usar \faRProject com funções matemáticas, quase como uma calculadora. Portanto, nesta lição, vou me concentrar principalmente na área de console. Então, eu vou maximizar essa tela. Aqui vamos nós.
+
+Acho que mostrei a você, no vídeo anterior, alguns comandos básicos, como 2 mais 4. Então é isso, e estamos rolando. Subtração é com o hífen. Então, podemos usar 3 menos 5, e isso é menos 2. Obviamente, podemos fazer a multiplicação, 3 vezes 3 é 9. Até agora tudo bem. A divisão é com uma barra, então 5 acima de 2 é 2,5. Se você deseja fazer um expoente, por exemplo, duas a terceira potência, duas vezes duas vezes duas que seria 8. Outra maneira de escrever a mesma coisa é usar duas e, em vez de um asterisco, use asterisco duplo, dois para o terceiro poder, e esse também é oito. Portanto, essas são suas funções aritméticas básicas, mas você pode ir além disso e usar funções mais complicadas que aprendeu no passado. Portanto, podemos pegar o valor absoluto de um número que essencialmente retira o sinal. Portanto, o comando lá é abs menos 7, digamos, digitei 5, pressione Enter e o valor absoluto de menos 5 é 5. Então, uma coisa a ser observada sobre as funções, e isso vale para todo R, é que existe uma função name, nesse caso, é abs, existe um parêntese aberto e, em seguida, você coloca seus argumentos, as variáveis de interesse e os parênteses próximos. Essa é a forma geral de uma função. Outras funções podem ter outros argumentos que você pode colocar lá, mas esses geralmente são um número de cada vez. OK. Portanto, temos o valor absoluto de cinco. Podemos pegar o log de 5. Podemos pegar o log de 5, a base é igual a 3, se você quiser fazer dessa maneira. Expoente, exp. Raiz quadrada. A raiz quadrada de 4 é 2. O fatorial de 9 é 362.000 mais. Então, suas funções trigonométricas tradicionais, seno de zero, seno de pi. Aí está. Então, essas são suas funções básicas. Convido você a olhar para a folha de dicas R e praticar algumas dessas funções por conta própria. Se você não sabe o que essas funções significam, porque nunca foi exposto a algo como, por exemplo, fatorial, não se preocupe. Seu conhecimento direcionará o que você precisa saber em termos de função. Então, talvez um dia você encontre a necessidade de usar a função fatorial. Talvez você esteja fazendo algumas combinações e, quando estiver estudando isso, isso se tornará útil. Isso envolve funções aritméticas em R.
+
+\begin{lstlisting}[language=R, caption=Algumas funções matemáticas do \faRProject]
+> 2+4
+> 3-5
+> 3*3
+> 5/2
+> 2^3
+> 2**3
+> abs(-5)
+> log(5)
+> log(5, base=3_
+> exp(3)
+> sqrt(4)
+> factorial(9)
+> sin(0)
+> sin(pi)
+\end{lstlisting}
+
+<<chunk1>>=
+
+ 2+4
+ 3-5
+ 3*3
+ 5/2
+ 2^3
+ 2**3
+ abs(-5)
+ log(5)
+ log(5, base=3)
+ exp(3)
+ sqrt(4)
+ factorial(9)
+ sin(0)
+ sin(pi)
+
+
+@
+%=======================================================
+
+\section{Variáveis escalares}
+
+\subsection{Quarto vídeo da primeira semana}
+
+No vídeo anterior, descrevemos como usar funções matemáticas em \faRProject. Mas observe, neste exemplo aqui, eu tenho 2 mais 2. Se eu executar esse código, recebo a resposta 4, mas a resposta não é armazenada em nenhum lugar. Então, nesta palestra, vamos falar sobre variáveis em R, basicamente, como armazenar informações. A maneira de fazer isso é realmente simples. 
+
+Primeiro, você cria um nome de variável, vou chamá-lo de x. Não é um nome muito criativo, mas serve. Então você usa essa coisa que se parece com uma flecha. Portanto, é um sinal menor que e um hífen. Então eu vou colocar um valor lá quatro. 
+
+Ainda não foi executado, então deixe-me executar esse código abaixo. Como mencionei em um vídeo anterior, quando clico no botão Executar, está cortando e colando esse comando no console e pressionando Enter. Portanto, no console, você vê que x recebe um valor de quatro. O que isso significa? Criar uma variável em R é criar, é como criar espaço no computador. 
+
+Imagine que você tenha uma Shoebox, e esse é o seu espaço no computador, e depois rotule essa Shoebox com as coisas que você colocará nele. Nesse caso, eu o chamei de x. Pode ser coisas como altura. Portanto, se você tem uma lista de equipes, esta é a lista de todas as alturas de todos os jogadores, podem ser os pesos, podem ser as datas de nascimento, pode ser o que você quiser. Então, você deseja rotular esta Shoebox e colocar dados leves dentro dessa Shoebox. 
+
+Aqui, eu apenas coloquei o valor de quatro. Observe também que, no canto superior direito do RStudio, você pode ver na guia ambiente global; portanto, clique nele se não estiver ativo, há sua variável xe aqui está o conteúdo dos quatro Shoebox. 
+
+Agora, vamos criar uma segunda variável y com valor três. Lá, agora você pode ver que eu executei esse código aqui, e você pode vê-lo no ambiente global aqui em cima, criei um pouco de espaço para ele e y é igual a um valor de três. Outra maneira de ver o valor do que está dentro de uma variável. Estou no console aqui agora e posso apenas digitar o nome da variável x, e ele responderá com quatro nesse caso ou y, e responderá com três. Para que eu possa vê-lo dentro da caixa, dessa forma, posso vê-lo no ambiente. Agora, eu posso executar alguns comandos como observamos anteriormente. Então, vamos fazer x mais y. Lá vamos nós, e executamos isso, e x mais y nesse caso são sete, o que faz sentido porque x contém um valor de quatro e Y contém o valor de três. Mas observe que a soma de xey não é armazenada em nenhum lugar. Para que eu possa criar uma terceira variável. Vamos chamá-lo de z. Use o operador de atribuição, que é o menos que o hífen do sinal, e x mais y. Vamos rodar essa linha, e você pode ver agora no canto superior direito, na seção Ambiente do RStudio, criamos a variável z e, ao mesmo tempo, colocamos o valor de x mais y. Então é assim que você cria uma variável escalar.
+
+Uma coisa a notar é que as variáveis podem ser de qualquer tipo. Então, se você deseja inserir texto, deve colocá-lo entre aspas. Então, vamos colocar, chamarei essa variável t1 para o exemplo de texto um, e posso escrever "oi mãe" e aí está. Você pode ver no ambiente que há "oi mãe". Se eu descer aqui e digitar t1, ele mostrará "oi mãe". Mas essa é uma sequência de caracteres. Então, o que você esperaria se eu fizesse algo como x mais t1? Tentamos isso, não tenha medo de pressionar "Enter", mas você pode ver que é um erro porque está tentando adicionar uma string de texto.
+
+String é um monte de caracteres com um numérico. Uma nota final sobre a variável Existem várias maneiras de escrever nomes de variáveis. Quase não há limitações sobre o que você pode chamar de variável. Mas, em termos de estilo e legibilidade, você deseja escolher um estilo consistente em todos os seus programas. gostaria de usar é chamado Lower camel case. Então, o que isso significa? Digamos que você tenha uma coluna de dados ou variável com o tamanho de um sapato. A caixa Camel se pareceria com isso. SHOESIZE. Observe, eu uso S aqui. você pode encadear uma frase e colocar em maiúscula cada palavra. Algumas pessoas também gostam de colocar em maiúscula a primeira letra. e S maiúsculo para sapato. 
+
+Tamanho do sapato, algo assim. Não importa, basta escolher um estilo e ficar com ele para facilitar a leitura. Observe também que, se você entrar no ambiente corporativo, eles podem ter seus próprios padrões de nomeação de variáveis de dados. Portanto, é algo em que você deve pensar e tentar se manter consistente com o ambiente corporativo. Isso envolve variáveis escalares.
+
+
+\begin{lstlisting}[language=R, caption=Variáveis escalares no \faRProject]
+> 2+2
+> x <- 4
+> y <- 3
+> z <- x+y
+> t1 <- "Hi mom"
+> x+t1
+\end{lstlisting}
+
+<<chunk2>>=
+ 2+2
+ x <- 4
+ y <- 3
+ z <- x+y
+ z
+ t1 <- "Hi mom"
+ x+t1
+@
+
+
+
+%==========================================================
+\section{Vetores coluna}
+
+\subsection{Quinto vídeo da primeira semana}
+
+Nesta palestra, vou falar sobre vetores de coluna em \faRProjectR. Os vetores de coluna são outro tipo de dados básico em R que nos ajudará a armazenar dados e poder manipular dados. O conceito de um vetor de coluna não é muito difícil, tenho certeza que você já viu isso antes.
+
+Aqui no Microsoft Excel, tenho uma coluna de pesos. Chamo a coluna wts de pesos e tenho alguns pesos de objetos que variam de 75 na parte inferior a um máximo de 280 libras ou quilogramas ou o que quer que seja. Então, aqui estão alguns pesos, e podemos querer criar algo semelhante em R.
+
+Então, é nesta Linha 2 aqui. O nome do vetor da coluna é wts. Você ainda tem esse hífen de sinal menor que o operador de atribuição e, para criar um vetor de coluna, usa C, abre parênteses e há todo o conjunto de números, dados 214, 226 etc., até 75, feche pai. É assim que você cria um vetor de coluna. Então vamos fazer isso. Eu executo o código. Isso aparece no meu ambiente global. Aí está. Eu também posso digitar wts, e aí está. Está listado, 214, 226, 280 etc. Uma coisa a observar, finalmente posso falar sobre esse item de colchete aqui. Se eu criei apenas uma variável escalar, x é igual a 4 e mostro x, tenho esse colchete um. De fato, uma variável escalar é um vetor de coluna com apenas um elemento, e isso indica qual elemento está no vetor de coluna. Então, aqui estou eu no Excel, e 214 é o primeiro elemento no vetor da coluna. 
+
+226 é o segundo elemento no vetor da coluna e assim por diante. Setenta e cinco é o último elemento ou o oitavo elemento no vetor de coluna. Se formos para o RStudio, podemos ver 214, 226 etc. Se eu quiser apenas obter os 226 libras, wts colchete dois, posso acessar isso. Então aí está. Eu posso até colocá-lo em outra variável y. Y é wts colchete 2 mais 5, e você pode ver que agora é um valor de 231. Se eu quisesse acessar mais do que apenas a segunda célula, se eu desejar talvez da segunda à quarta célula, seria wts square colchete dois dois pontos quatro, e lá estão eles. Este colchete na resposta dirá que este é o primeiro elemento. Se atropelar, você verá o próximo número. Então, aqui, eu acessei as variáveis de segunda a quarta das ponderações e recebo 226, 280, 185, que podemos verificar aqui de duas a quatro, 226, 280 e 185, para que funcione. 
+
+Este colchete é o endereço do seu vetor de coluna. Então, aqui está o primeiro elemento, este é o seu segundo elemento, este é o seu terceiro elemento, etc. Se ele se envolver, você verá o endereço do vetor maior. Então, vamos criar um vetor grande, e eu vou chamá-lo de vetor grande, e vou usar um gerador de números aleatórios. Vamos criar 100 números aleatórios. Se eu quiser ver um vetor grande agora, você pode ver que aqui o colchete, esse é o primeiro elemento, 1 menos 1,67 etc., esse é o primeiro elemento. Então temos aqui um colchete 10, esse item aqui é o décimo elemento e assim por diante até obtermos o centésimo elemento. 
+
+Então é isso que esse endereçamento aqui é. A próxima coisa que quero falar são alguns comandos básicos que podemos usar em um vetor. Eu os tenho aqui nas linhas 6 a 10. A primeira é que podemos obter um resumo dos pesos. Aqui estão suas estatísticas descritivas, o valor mínimo, o valor máximo, a média, a mediana e os intervalos do quartil. Se eu quisesse apenas a média, eu poderia fazer isso com o comando da média. Aí está, e a variação e o desvio padrão também.
+
+
+\begin{lstlisting}[language=R, caption=Vetores coluna no \faRProject]
+> wts <- c(214, 226, 280, 185, 130, 146, 165, 750)
+> bigvector <- rnorm(100)
+> bigvector
+> x2 <- c(1,2,3,4,5,6,7,8)
+> summary(wts)
+> mean(wts)
+> var(wts)
+> sd(wts)
+> wts[2]+5
+> wts[2] <- wts[2]+5
+> wts
+> wts*3
+> wtstimes3 <- wts*3
+> wtstimes3
+\end{lstlisting}
+
+<<chunk3>>=
+ wts <- c(214, 226, 280, 185, 130, 146, 165, 750)
+ bigvector <- rnorm(100)
+ bigvector
+ x2 <- c(1,2,3,4,5,6,7,8)
+ summary(wts)
+ mean(wts)
+ var(wts)
+ sd(wts)
+ wts[2]+5
+ wts[2] <- wts[2]+5
+ wts
+ wts*3
+ wtstimes3 <- wts*3
+ wtstimes3
+
+@
+
+%==========================================================
+\section{Dataframes (bases de dados)}
+
+\subsection{Sexto vídeo da primeira semana}
+
+Neste vídeo, gostaria de falar sobre DataFrames, outro tipo de estrutura de dados em \faRProject. Não é nada além de uma tabela que você pode ver em uma planilha do Excel ou algo assim. Mas vamos construir um. A primeira linha aqui, neste código, existe vários nomes de família. É um vetor de coluna e os nomes são criativamente pai, mãe, irmão, irmã e cachorro. Então, vamos criar esse vetor. Se dermos uma olhada, podemos ver que há o vetor da coluna. Da mesma forma, temos o vetor da coluna de crédito de suas idades. Podemos dar uma olhada. Lá estão eles, seus gêneros e seus pesos familiares. Então agora, eu tenho essas quatro colunas. Um é o nome, a idade, a coluna, o sexo e o peso. Portanto, esses são alguns dados que você normalmente pode encontrar. Vou criar um DataFrame. Para criar um DataFrame, você precisa desta impressão aberta do Dataframe e, em seguida, dos nomes de cada coluna que você colocará lá. Agora, vou nomear o DataFrame, a família. Então, vamos executar essa linha de código. Aí está. Agora, podemos realmente dar uma olhada e você pode ver que parece quase uma planilha do Excel. Os nomes das colunas estão no topo. Lá estão eles. Aqui estão os nomes, as idades correspondentes, os gêneros e os pesos.
+
+
+Se você se deparar com o código de outra pessoa ou algo com o qual alguma estrutura de dados não esteja familiarizada, você pode usar este comando str, que significa estrutura. Eu posso até colocar isso nos comentários aqui, estrutura.
+
+Isso informará que tipo de dados você possui. Então, aqui fizemos a estrutura da família, e você pode ver que existem cinco observações de quatro variáveis e as listamos.
+
+Deixe-me ir aqui embaixo, a estrutura de talvez os pesos, apenas os pesos de vetor de colunas.
+
+Você pode ver aqui que é um vetor de coluna numérica que varia de um a cinco elementos e existem os valores reais. Portanto, o comando structure informa um pouco sobre os dados com os quais você está trabalhando. Se você quiser acessar apenas uma das colunas em um DataFrame, poderá usar esta notação de nome de cifrão. Portanto, no comando de estrutura, você vê o nome é a família e, em seguida, os nomes de família em dólares, a idade da família etc. Lá estão eles e há o vetor da coluna. Agora, podemos fazer coisas como calcular a média. Eu já tenho o comando aqui em cima. Qual é a média ou qual é a idade média na família? Aí está. Uma coisa que você precisa fazer quando tem uma tabela é poder acessar uma linha, coluna ou célula individual. Existem diferentes maneiras de abordar cada um desses componentes. Aqui está um conjunto de dados pré-carregado em R. É chamado mtcars. Mt significa motor trends Magazine, mtcars. Aqui está um DataFrame. Tem o modelo do carro, milhas por galão, cilindrada, etc. Podemos querer olhar para a estrutura, isso é um quadro de dados? Ai está. É um DataFrame, possui 32 observações de 11 variáveis neste caso. Se quiséssemos obter a coluna de milhas por galão, como mostrei no exemplo de família, isso seria \$ mpg. Lá estão eles.
+
+Se eu quisesse obter apenas a primeira coluna, usaria esse colchete de notação, algo como vírgula. Então, vamos olhar para a linha 10. Esta é a linha 1, coluna 2. Portanto, se eu executar essa linha de código, obtenho o valor de seis, que é a linha 1, coluna 2, é esse valor lá. Se eu quiser apenas a primeira coluna, não coloco nada nesse primeiro elemento antes da vírgula e apenas digo a primeira coluna. Ai está. Acontece que é o mesmo que a coluna por milhas por galão. Essa é a primeira coluna. Se eu quisesse obter os pesos das colunas, aí estão eles, mtcars \$ weght. Lá estão eles. Se eu quisesse a sexta coluna, posso fazer isso. Se eu quisesse a primeira linha. Então agora, estou trocando colchete, linha um, me dê todas as colunas na primeira linha. Lá estão eles. Nesse caso, esse DataFrame possui alguns rótulos, para que possamos fazê-lo pelo rótulo ou pela linha. Aí está. Isso basicamente o ajudará a contornar os conjuntos de dados. De um modo geral para esta aula, apenas me dê a coluna. Portanto, esse primeiro conjunto de comandos é o que você realmente precisa saber, seja no nome da coluna. Então, nome do DataFrame e nome da coluna. Se você está acostumado ao Excel, esse seria o nome do arquivo do Excel e, em seguida, o nome da sua coluna ou, em seguida, basta escolher as colunas individuais. Isso envolve os DataFrames.
+
+\begin{lstlisting}[language=R, caption=Dataframes no \faRProject]
+#Dataframes
+> famNames <- c("dad","mom","bro","sis","dog")
+> famAges <- c(42,41,12,8,5)
+> famGender <- c("M","F","M","F","F")
+> famWeight <- c(188,135,83,61,44)
+#Create dataframe
+> TheFamily <- data.frame(famNames, famAges, famGender, famWeight)
+> str(TheFamily)
+> summary(TheFamily)
+\end{lstlisting}
+
+<<>>=
+#Dataframes
+ famNames <- c("dad","mom","bro","sis","dog")
+ famAges <- c(42,41,12,8,5)
+ famGender <- c("M","F","M","F","F")
+ famWeight <- c(188,135,83,61,44)
+#Create dataframe
+ TheFamily <- data.frame(famNames, famAges, famGender, famWeight)
+ str(TheFamily)
+ summary(TheFamily)
+
+@
+
+
+%=====================================================
+\newpage
+%=====================================================
+
+\begin{thebibliography}{99}
+
+
+\bibitem{gujarati} Gujarati, D.,N. \textbf{Basic Econometrics}, fourth edition, McGraw-HiII/lrwin, 2003.
+
+\bibitem{overleaf} Disponível em Overleaf.com 
+
+\bibitem{xie} Xie, Y. \textbf{Dynamic Documents with R and knitr} 2nd edition, 2015.
+
+
+\end{thebibliography}
+
+
+
+
+
+
+
+
+
+
+%===================================================
+\end{document}
